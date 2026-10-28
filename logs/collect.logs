@@ -1,1 +1,105 @@
 
+2026-10-28 10:50:32 - INFO - Copie de data/raw/sales_data.csv vers data/raw/sales_20261028_1050.csv
+2026-10-28 10:50:32 - INFO - Début de la collecte -> data/raw/sales_20261028_1050.csv
+2026-10-28 10:50:32 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 9
+2026-10-28 10:50:32 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 17
+2026-10-28 10:50:32 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 17
+2026-10-28 10:50:32 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 16
+2026-10-28 10:50:32 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 3
+2026-10-28 10:50:32 - INFO - Fin de la collecte
+2026-10-28 15:11:46 - INFO - Copie de data/raw/sales_20261028_1050.csv vers data/raw/sales_20261028_1511.csv
+2026-10-28 15:11:46 - INFO - Début de la collecte -> data/raw/sales_20261028_1511.csv
+2026-10-28 15:11:46 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 8
+2026-10-28 15:11:46 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 0
+2026-10-28 15:11:46 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 0
+2026-10-28 15:11:46 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 9
+2026-10-28 15:11:46 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 13
+2026-10-28 15:11:46 - INFO - Fin de la collecte
+2026-10-28 15:13:01 - INFO - Copie de data/raw/sales_20261028_1511.csv vers data/raw/sales_20261028_1513.csv
+2026-10-28 15:13:01 - INFO - Début de la collecte -> data/raw/sales_20261028_1513.csv
+2026-10-28 15:13:01 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 0
+2026-10-28 15:13:01 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 19
+2026-10-28 15:13:01 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 19
+2026-10-28 15:13:01 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 10
+2026-10-28 15:13:01 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 16
+2026-10-28 15:13:01 - INFO - Fin de la collecte
+2026-10-28 15:14:02 - INFO - Copie de data/raw/sales_20261028_1513.csv vers data/raw/sales_20261028_1514.csv
+2026-10-28 15:14:02 - INFO - Début de la collecte -> data/raw/sales_20261028_1514.csv
+2026-10-28 15:14:02 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 3
+2026-10-28 15:14:02 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 20
+2026-10-28 15:14:02 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 20
+2026-10-28 15:14:02 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 9
+2026-10-28 15:14:02 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 4
+2026-10-28 15:14:02 - INFO - Fin de la collecte
+2026-10-28 15:15:01 - INFO - Copie de data/raw/sales_20261028_1514.csv vers data/raw/sales_20261028_1515.csv
+2026-10-28 15:15:01 - INFO - Début de la collecte -> data/raw/sales_20261028_1515.csv
+2026-10-28 15:15:01 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 17
+2026-10-28 15:15:01 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 8
+2026-10-28 15:15:01 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 8
+2026-10-28 15:15:01 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 7
+2026-10-28 15:15:01 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 3
+2026-10-28 15:15:01 - INFO - Fin de la collecte
+2026-10-28 15:16:01 - INFO - Copie de data/raw/sales_20261028_1515.csv vers data/raw/sales_20261028_1516.csv
+2026-10-28 15:16:01 - INFO - Début de la collecte -> data/raw/sales_20261028_1516.csv
+2026-10-28 15:16:01 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 12
+2026-10-28 15:16:01 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 17
+2026-10-28 15:16:01 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 17
+2026-10-28 15:16:01 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 6
+2026-10-28 15:16:01 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 14
+2026-10-28 15:16:01 - INFO - Fin de la collecte
+2026-10-28 15:17:01 - INFO - Copie de data/raw/sales_20261028_1516.csv vers data/raw/sales_20261028_1517.csv
+2026-10-28 15:17:01 - INFO - Début de la collecte -> data/raw/sales_20261028_1517.csv
+2026-10-28 15:17:01 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 19
+2026-10-28 15:17:01 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 15
+2026-10-28 15:17:01 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 15
+2026-10-28 15:17:01 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 13
+2026-10-28 15:17:01 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 11
+2026-10-28 15:17:01 - INFO - Fin de la collecte
+2026-10-28 15:18:01 - INFO - Copie de data/raw/sales_20261028_1517.csv vers data/raw/sales_20261028_1518.csv
+2026-10-28 15:18:01 - INFO - Début de la collecte -> data/raw/sales_20261028_1518.csv
+2026-10-28 15:18:01 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 9
+2026-10-28 15:18:01 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 19
+2026-10-28 15:18:01 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 19
+2026-10-28 15:18:01 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 15
+2026-10-28 15:18:01 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 2
+2026-10-28 15:18:01 - INFO - Fin de la collecte
+2026-10-28 15:19:01 - INFO - Copie de data/raw/sales_20261028_1518.csv vers data/raw/sales_20261028_1519.csv
+2026-10-28 15:19:01 - INFO - Début de la collecte -> data/raw/sales_20261028_1519.csv
+2026-10-28 15:19:01 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 12
+2026-10-28 15:19:02 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 20
+2026-10-28 15:19:02 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 20
+2026-10-28 15:19:02 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 11
+2026-10-28 15:19:02 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 15
+2026-10-28 15:19:02 - INFO - Fin de la collecte
+2026-10-28 15:20:01 - INFO - Copie de data/raw/sales_20261028_1519.csv vers data/raw/sales_20261028_1520.csv
+2026-10-28 15:20:01 - INFO - Début de la collecte -> data/raw/sales_20261028_1520.csv
+2026-10-28 15:20:01 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 3
+2026-10-28 15:20:01 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 2
+2026-10-28 15:20:01 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 2
+2026-10-28 15:20:01 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 3
+2026-10-28 15:20:01 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 9
+2026-10-28 15:20:01 - INFO - Fin de la collecte
+2026-10-28 15:21:01 - INFO - Copie de data/raw/sales_20261028_1520.csv vers data/raw/sales_20261028_1521.csv
+2026-10-28 15:21:01 - INFO - Début de la collecte -> data/raw/sales_20261028_1521.csv
+2026-10-28 15:21:01 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 16
+2026-10-28 15:21:01 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 2
+2026-10-28 15:21:01 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 2
+2026-10-28 15:21:01 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 7
+2026-10-28 15:21:01 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 2
+2026-10-28 15:21:01 - INFO - Fin de la collecte
+2026-10-28 15:22:01 - INFO - Copie de data/raw/sales_20261028_1521.csv vers data/raw/sales_20261028_1522.csv
+2026-10-28 15:22:01 - INFO - Début de la collecte -> data/raw/sales_20261028_1522.csv
+2026-10-28 15:22:01 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 5
+2026-10-28 15:22:01 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 14
+2026-10-28 15:22:01 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 14
+2026-10-28 15:22:01 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 4
+2026-10-28 15:22:01 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 3
+2026-10-28 15:22:01 - INFO - Fin de la collecte
+2026-10-28 15:23:01 - INFO - Copie de data/raw/sales_20261028_1522.csv vers data/raw/sales_20261028_1523.csv
+2026-10-28 15:23:01 - INFO - Début de la collecte -> data/raw/sales_20261028_1523.csv
+2026-10-28 15:23:01 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 7
+2026-10-28 15:23:01 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 4
+2026-10-28 15:23:01 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 4
+2026-10-28 15:23:01 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 7
+2026-10-28 15:23:01 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 15
+2026-10-28 15:23:01 - INFO - Fin de la collecte

@@ -1,0 +1,146 @@
+2026-10-28 13:07:19 - INFO - Lancement de src/preprocessed.py
+Traceback (most recent call last):
+  File "/home/ubuntu/exam_MAZOYER/exam_bash/src/preprocessed.py", line 21, in <module>
+    from pathlib import pathlib
+ImportError: cannot import name 'pathlib' from 'pathlib' (/usr/lib/python3.12/pathlib.py)
+2026-10-28 13:07:19 - ERROR - Échec du prétraitement (code retour 1)
+2026-10-28 13:07:54 - INFO - Lancement de src/preprocessed.py
+Traceback (most recent call last):
+  File "/home/ubuntu/exam_MAZOYER/exam_bash/src/preprocessed.py", line 49, in <module>
+    def clean(df: pd.DataFrame) -> pd.DataFrame:
+                  ^^
+NameError: name 'pd' is not defined. Did you mean: 'id'?
+2026-10-28 13:07:55 - ERROR - Échec du prétraitement (code retour 1)
+2026-10-28 13:08:15 - INFO - Lancement de src/preprocessed.py
+2026-10-28 13:08:15 - INFO - Début du prétraitement
+2026-10-28 13:08:15 - ERROR - Échec du prétraitement
+Traceback (most recent call last):
+  File "/home/ubuntu/exam_MAZOYER/exam_bash/src/preprocessed.py", line 78, in main
+    raw_file = get_latest_raw_file()
+               ^^^^^^^^^^^^^^^^^^^
+NameError: name 'get_latest_raw_file' is not defined. Did you mean: 'get_latest_file'?
+2026-10-28 13:08:15 - ERROR - Échec du prétraitement (code retour 1)
+2026-10-28 13:08:37 - INFO - Lancement de src/preprocessed.py
+2026-10-28 13:08:37 - INFO - Début du prétraitement
+2026-10-28 13:08:37 - INFO - Fichier source : data/raw/sales_20261028_1050.csv (505 lignes)
+2026-10-28 13:08:37 - INFO - Nettoyage : 0 lignes supprimées, 505 restantes
+2026-10-28 13:08:37 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 13:08:37 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1308.csv (505 lignes)
+2026-10-28 13:08:37 - INFO -  Fin du prétraitement
+Traceback (most recent call last):
+  File "/home/ubuntu/exam_MAZOYER/exam_bash/src/preprocessed.py", line 97, in <module>
+    EOF
+NameError: name 'EOF' is not defined
+2026-10-28 13:08:37 - ERROR - Échec du prétraitement (code retour 1)
+2026-10-28 13:10:38 - INFO - Lancement de src/preprocessed.py
+2026-10-28 13:10:39 - INFO - Début du prétraitement
+2026-10-28 13:10:39 - INFO - Fichier source : data/raw/sales_20261028_1050.csv (505 lignes)
+2026-10-28 13:10:39 - INFO - Nettoyage : 0 lignes supprimées, 505 restantes
+2026-10-28 13:10:39 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 13:10:39 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1310.csv (505 lignes)
+2026-10-28 13:10:39 - INFO -  Fin du prétraitement
+2026-10-28 13:10:39 - INFO - Prétraitement terminé avec succès
+2026-10-28 13:12:09 - INFO - Lancement de src/preprocessed.py
+2026-10-28 13:12:09 - INFO - Début du prétraitement
+2026-10-28 13:12:09 - INFO - Fichier source : data/raw/sales_20261028_1050.csv (505 lignes)
+2026-10-28 13:12:09 - INFO - Nettoyage : 0 lignes supprimées, 505 restantes
+2026-10-28 13:12:09 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 13:12:09 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1312.csv (505 lignes)
+2026-10-28 13:12:09 - INFO -  Fin du prétraitement
+2026-10-28 13:12:09 - INFO - Prétraitement terminé avec succès
+2026-10-28 15:11:46 - INFO - Lancement de src/preprocessed.py
+2026-10-28 15:11:47 - INFO - Début du prétraitement
+2026-10-28 15:11:47 - INFO - Fichier source : data/raw/sales_20261028_1511.csv (510 lignes)
+2026-10-28 15:11:47 - INFO - Nettoyage : 0 lignes supprimées, 510 restantes
+2026-10-28 15:11:47 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 15:11:47 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1511.csv (510 lignes)
+2026-10-28 15:11:47 - INFO -  Fin du prétraitement
+2026-10-28 15:11:47 - INFO - Prétraitement terminé avec succès
+2026-10-28 15:13:01 - INFO - Lancement de src/preprocessed.py
+2026-10-28 15:13:01 - INFO - Début du prétraitement
+2026-10-28 15:13:01 - INFO - Fichier source : data/raw/sales_20261028_1513.csv (515 lignes)
+2026-10-28 15:13:01 - INFO - Nettoyage : 0 lignes supprimées, 515 restantes
+2026-10-28 15:13:01 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 15:13:01 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1513.csv (515 lignes)
+2026-10-28 15:13:01 - INFO -  Fin du prétraitement
+2026-10-28 15:13:01 - INFO - Prétraitement terminé avec succès
+2026-10-28 15:14:02 - INFO - Lancement de src/preprocessed.py
+2026-10-28 15:14:02 - INFO - Début du prétraitement
+2026-10-28 15:14:02 - INFO - Fichier source : data/raw/sales_20261028_1514.csv (520 lignes)
+2026-10-28 15:14:02 - INFO - Nettoyage : 0 lignes supprimées, 520 restantes
+2026-10-28 15:14:02 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 15:14:02 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1514.csv (520 lignes)
+2026-10-28 15:14:02 - INFO -  Fin du prétraitement
+2026-10-28 15:14:02 - INFO - Prétraitement terminé avec succès
+2026-10-28 15:15:01 - INFO - Lancement de src/preprocessed.py
+2026-10-28 15:15:02 - INFO - Début du prétraitement
+2026-10-28 15:15:02 - INFO - Fichier source : data/raw/sales_20261028_1515.csv (525 lignes)
+2026-10-28 15:15:02 - INFO - Nettoyage : 0 lignes supprimées, 525 restantes
+2026-10-28 15:15:02 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 15:15:02 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1515.csv (525 lignes)
+2026-10-28 15:15:02 - INFO -  Fin du prétraitement
+2026-10-28 15:15:02 - INFO - Prétraitement terminé avec succès
+2026-10-28 15:16:01 - INFO - Lancement de src/preprocessed.py
+2026-10-28 15:16:02 - INFO - Début du prétraitement
+2026-10-28 15:16:02 - INFO - Fichier source : data/raw/sales_20261028_1516.csv (530 lignes)
+2026-10-28 15:16:02 - INFO - Nettoyage : 0 lignes supprimées, 530 restantes
+2026-10-28 15:16:02 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 15:16:02 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1516.csv (530 lignes)
+2026-10-28 15:16:02 - INFO -  Fin du prétraitement
+2026-10-28 15:16:02 - INFO - Prétraitement terminé avec succès
+2026-10-28 15:17:01 - INFO - Lancement de src/preprocessed.py
+2026-10-28 15:17:01 - INFO - Début du prétraitement
+2026-10-28 15:17:01 - INFO - Fichier source : data/raw/sales_20261028_1517.csv (535 lignes)
+2026-10-28 15:17:01 - INFO - Nettoyage : 0 lignes supprimées, 535 restantes
+2026-10-28 15:17:01 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 15:17:01 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1517.csv (535 lignes)
+2026-10-28 15:17:01 - INFO -  Fin du prétraitement
+2026-10-28 15:17:02 - INFO - Prétraitement terminé avec succès
+2026-10-28 15:18:01 - INFO - Lancement de src/preprocessed.py
+2026-10-28 15:18:01 - INFO - Début du prétraitement
+2026-10-28 15:18:01 - INFO - Fichier source : data/raw/sales_20261028_1518.csv (540 lignes)
+2026-10-28 15:18:01 - INFO - Nettoyage : 0 lignes supprimées, 540 restantes
+2026-10-28 15:18:01 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 15:18:01 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1518.csv (540 lignes)
+2026-10-28 15:18:01 - INFO -  Fin du prétraitement
+2026-10-28 15:18:01 - INFO - Prétraitement terminé avec succès
+2026-10-28 15:19:02 - INFO - Lancement de src/preprocessed.py
+2026-10-28 15:19:02 - INFO - Début du prétraitement
+2026-10-28 15:19:02 - INFO - Fichier source : data/raw/sales_20261028_1519.csv (545 lignes)
+2026-10-28 15:19:02 - INFO - Nettoyage : 0 lignes supprimées, 545 restantes
+2026-10-28 15:19:02 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 15:19:02 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1519.csv (545 lignes)
+2026-10-28 15:19:02 - INFO -  Fin du prétraitement
+2026-10-28 15:19:02 - INFO - Prétraitement terminé avec succès
+2026-10-28 15:20:01 - INFO - Lancement de src/preprocessed.py
+2026-10-28 15:20:02 - INFO - Début du prétraitement
+2026-10-28 15:20:02 - INFO - Fichier source : data/raw/sales_20261028_1520.csv (550 lignes)
+2026-10-28 15:20:02 - INFO - Nettoyage : 0 lignes supprimées, 550 restantes
+2026-10-28 15:20:02 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 15:20:02 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1520.csv (550 lignes)
+2026-10-28 15:20:02 - INFO -  Fin du prétraitement
+2026-10-28 15:20:02 - INFO - Prétraitement terminé avec succès
+2026-10-28 15:21:01 - INFO - Lancement de src/preprocessed.py
+2026-10-28 15:21:02 - INFO - Début du prétraitement
+2026-10-28 15:21:02 - INFO - Fichier source : data/raw/sales_20261028_1521.csv (555 lignes)
+2026-10-28 15:21:02 - INFO - Nettoyage : 0 lignes supprimées, 555 restantes
+2026-10-28 15:21:02 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 15:21:02 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1521.csv (555 lignes)
+2026-10-28 15:21:02 - INFO -  Fin du prétraitement
+2026-10-28 15:21:02 - INFO - Prétraitement terminé avec succès
+2026-10-28 15:22:01 - INFO - Lancement de src/preprocessed.py
+2026-10-28 15:22:01 - INFO - Début du prétraitement
+2026-10-28 15:22:01 - INFO - Fichier source : data/raw/sales_20261028_1522.csv (560 lignes)
+2026-10-28 15:22:01 - INFO - Nettoyage : 0 lignes supprimées, 560 restantes
+2026-10-28 15:22:01 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 15:22:01 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1522.csv (560 lignes)
+2026-10-28 15:22:01 - INFO -  Fin du prétraitement
+2026-10-28 15:22:01 - INFO - Prétraitement terminé avec succès
+2026-10-28 15:23:01 - INFO - Lancement de src/preprocessed.py
+2026-10-28 15:23:01 - INFO - Début du prétraitement
+2026-10-28 15:23:01 - INFO - Fichier source : data/raw/sales_20261028_1523.csv (565 lignes)
+2026-10-28 15:23:01 - INFO - Nettoyage : 0 lignes supprimées, 565 restantes
+2026-10-28 15:23:01 - INFO - Colonnes : ['hour', 'minute', 'model_rtx3060', 'model_rtx3070', 'model_rtx3080', 'model_rtx3090', 'model_rx6700', 'sales']
+2026-10-28 15:23:01 - INFO - Fichier sauvegardé : data/processed/sales_processed_20261028_1523.csv (565 lignes)
+2026-10-28 15:23:01 - INFO -  Fin du prétraitement
+2026-10-28 15:23:01 - INFO - Prétraitement terminé avec succès

@@ -1,0 +1,44 @@
+bash scripts/collect.sh
+bash scripts/preprocessed.sh
+bash scripts/train.sh
+Métriques sur le jeu de test : RMSE = 5.326, MAE = 4.377, R2 = 0.225
+bash scripts/collect.sh
+bash scripts/preprocessed.sh
+bash scripts/train.sh
+Métriques sur le jeu de test : RMSE = 5.498, MAE = 4.499, R2 = 0.200
+bash scripts/collect.sh
+bash scripts/preprocessed.sh
+bash scripts/train.sh
+Métriques sur le jeu de test : RMSE = 5.559, MAE = 4.518, R2 = 0.170
+bash scripts/collect.sh
+bash scripts/preprocessed.sh
+bash scripts/train.sh
+Métriques sur le jeu de test : RMSE = 5.409, MAE = 4.372, R2 = 0.188
+bash scripts/collect.sh
+bash scripts/preprocessed.sh
+bash scripts/train.sh
+Métriques sur le jeu de test : RMSE = 5.273, MAE = 4.253, R2 = 0.212
+bash scripts/collect.sh
+bash scripts/preprocessed.sh
+bash scripts/train.sh
+Métriques sur le jeu de test : RMSE = 5.587, MAE = 4.472, R2 = 0.125
+bash scripts/collect.sh
+bash scripts/preprocessed.sh
+bash scripts/train.sh
+Métriques sur le jeu de test : RMSE = 5.959, MAE = 4.766, R2 = 0.007
+bash scripts/collect.sh
+bash scripts/preprocessed.sh
+bash scripts/train.sh
+Métriques sur le jeu de test : RMSE = 5.820, MAE = 4.638, R2 = 0.086
+bash scripts/collect.sh
+bash scripts/preprocessed.sh
+bash scripts/train.sh
+Métriques sur le jeu de test : RMSE = 5.882, MAE = 4.767, R2 = 0.106
+bash scripts/collect.sh
+bash scripts/preprocessed.sh
+bash scripts/train.sh
+Métriques sur le jeu de test : RMSE = 5.833, MAE = 4.780, R2 = 0.105
+bash scripts/collect.sh
+bash scripts/preprocessed.sh
+bash scripts/train.sh
+Métriques sur le jeu de test : RMSE = 5.808, MAE = 4.808, R2 = 0.100

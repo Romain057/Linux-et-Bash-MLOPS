@@ -1,0 +1,126 @@
+2026-10-28 14:40:23 - INFO - Lancement de src/train.py
+2026-10-28 14:40:28 - INFO - Début de l'entraînement
+2026-10-28 14:40:28 - INFO - Données : data/processed/sales_processed_20261028_1312.csv (505 lignes)
+2026-10-28 14:40:28 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 14:40:28 - INFO - Découpage : 404 lignes d'entraînement, 101 de test
+2026-10-28 14:40:28 - INFO - Métriques sur le jeu de test : RMSE = 4.813, MAE = 3.927, R2 = 0.335
+2026-10-28 14:40:28 - INFO - Modèle sauvegardé : model/model.pkl
+2026-10-28 14:40:28 - INFO - Fin de l'entraînement
+2026-10-28 14:40:28 - INFO - Entraînement terminé avec succès
+2026-10-28 14:40:35 - INFO - Lancement de src/train.py
+2026-10-28 14:40:37 - INFO - Début de l'entraînement
+2026-10-28 14:40:37 - INFO - Données : data/processed/sales_processed_20261028_1312.csv (505 lignes)
+2026-10-28 14:40:37 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 14:40:37 - INFO - Découpage : 404 lignes d'entraînement, 101 de test
+2026-10-28 14:40:37 - INFO - Métriques sur le jeu de test : RMSE = 4.813, MAE = 3.927, R2 = 0.335
+2026-10-28 14:40:37 - INFO - Modèle sauvegardé : model/model_20261028_1440.pkl
+2026-10-28 14:40:37 - INFO - Fin de l'entraînement
+2026-10-28 14:40:37 - INFO - Entraînement terminé avec succès
+2026-10-28 15:11:47 - INFO - Lancement de src/train.py
+2026-10-28 15:11:49 - INFO - Début de l'entraînement
+2026-10-28 15:11:49 - INFO - Données : data/processed/sales_processed_20261028_1511.csv (510 lignes)
+2026-10-28 15:11:49 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 15:11:49 - INFO - Découpage : 408 lignes d'entraînement, 102 de test
+2026-10-28 15:11:49 - INFO - Métriques sur le jeu de test : RMSE = 4.936, MAE = 4.077, R2 = 0.307
+2026-10-28 15:11:49 - INFO - Modèle sauvegardé : model/model_20261028_1511.pkl
+2026-10-28 15:11:49 - INFO - Fin de l'entraînement
+2026-10-28 15:11:49 - INFO - Entraînement terminé avec succès
+2026-10-28 15:13:01 - INFO - Lancement de src/train.py
+2026-10-28 15:13:03 - INFO - Début de l'entraînement
+2026-10-28 15:13:03 - INFO - Données : data/processed/sales_processed_20261028_1513.csv (515 lignes)
+2026-10-28 15:13:03 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 15:13:03 - INFO - Découpage : 412 lignes d'entraînement, 103 de test
+2026-10-28 15:13:03 - INFO - Métriques sur le jeu de test : RMSE = 5.326, MAE = 4.377, R2 = 0.225
+2026-10-28 15:13:03 - INFO - Modèle sauvegardé : model/model_20261028_1513.pkl
+2026-10-28 15:13:03 - INFO - Fin de l'entraînement
+2026-10-28 15:13:03 - INFO - Entraînement terminé avec succès
+2026-10-28 15:14:02 - INFO - Lancement de src/train.py
+2026-10-28 15:14:04 - INFO - Début de l'entraînement
+2026-10-28 15:14:04 - INFO - Données : data/processed/sales_processed_20261028_1514.csv (520 lignes)
+2026-10-28 15:14:04 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 15:14:04 - INFO - Découpage : 416 lignes d'entraînement, 104 de test
+2026-10-28 15:14:04 - INFO - Métriques sur le jeu de test : RMSE = 5.498, MAE = 4.499, R2 = 0.200
+2026-10-28 15:14:04 - INFO - Modèle sauvegardé : model/model_20261028_1514.pkl
+2026-10-28 15:14:04 - INFO - Fin de l'entraînement
+2026-10-28 15:14:04 - INFO - Entraînement terminé avec succès
+2026-10-28 15:15:02 - INFO - Lancement de src/train.py
+2026-10-28 15:15:04 - INFO - Début de l'entraînement
+2026-10-28 15:15:04 - INFO - Données : data/processed/sales_processed_20261028_1515.csv (525 lignes)
+2026-10-28 15:15:04 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 15:15:04 - INFO - Découpage : 420 lignes d'entraînement, 105 de test
+2026-10-28 15:15:04 - INFO - Métriques sur le jeu de test : RMSE = 5.559, MAE = 4.518, R2 = 0.170
+2026-10-28 15:15:04 - INFO - Modèle sauvegardé : model/model_20261028_1515.pkl
+2026-10-28 15:15:04 - INFO - Fin de l'entraînement
+2026-10-28 15:15:04 - INFO - Entraînement terminé avec succès
+2026-10-28 15:16:02 - INFO - Lancement de src/train.py
+2026-10-28 15:16:04 - INFO - Début de l'entraînement
+2026-10-28 15:16:04 - INFO - Données : data/processed/sales_processed_20261028_1516.csv (530 lignes)
+2026-10-28 15:16:04 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 15:16:04 - INFO - Découpage : 424 lignes d'entraînement, 106 de test
+2026-10-28 15:16:04 - INFO - Métriques sur le jeu de test : RMSE = 5.409, MAE = 4.372, R2 = 0.188
+2026-10-28 15:16:04 - INFO - Modèle sauvegardé : model/model_20261028_1516.pkl
+2026-10-28 15:16:04 - INFO - Fin de l'entraînement
+2026-10-28 15:16:04 - INFO - Entraînement terminé avec succès
+2026-10-28 15:17:02 - INFO - Lancement de src/train.py
+2026-10-28 15:17:03 - INFO - Début de l'entraînement
+2026-10-28 15:17:03 - INFO - Données : data/processed/sales_processed_20261028_1517.csv (535 lignes)
+2026-10-28 15:17:03 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 15:17:03 - INFO - Découpage : 428 lignes d'entraînement, 107 de test
+2026-10-28 15:17:03 - INFO - Métriques sur le jeu de test : RMSE = 5.273, MAE = 4.253, R2 = 0.212
+2026-10-28 15:17:03 - INFO - Modèle sauvegardé : model/model_20261028_1517.pkl
+2026-10-28 15:17:03 - INFO - Fin de l'entraînement
+2026-10-28 15:17:04 - INFO - Entraînement terminé avec succès
+2026-10-28 15:18:01 - INFO - Lancement de src/train.py
+2026-10-28 15:18:03 - INFO - Début de l'entraînement
+2026-10-28 15:18:03 - INFO - Données : data/processed/sales_processed_20261028_1518.csv (540 lignes)
+2026-10-28 15:18:03 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 15:18:03 - INFO - Découpage : 432 lignes d'entraînement, 108 de test
+2026-10-28 15:18:03 - INFO - Métriques sur le jeu de test : RMSE = 5.587, MAE = 4.472, R2 = 0.125
+2026-10-28 15:18:03 - INFO - Modèle sauvegardé : model/model_20261028_1518.pkl
+2026-10-28 15:18:03 - INFO - Fin de l'entraînement
+2026-10-28 15:18:03 - INFO - Entraînement terminé avec succès
+2026-10-28 15:19:02 - INFO - Lancement de src/train.py
+2026-10-28 15:19:04 - INFO - Début de l'entraînement
+2026-10-28 15:19:04 - INFO - Données : data/processed/sales_processed_20261028_1519.csv (545 lignes)
+2026-10-28 15:19:04 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 15:19:04 - INFO - Découpage : 436 lignes d'entraînement, 109 de test
+2026-10-28 15:19:04 - INFO - Métriques sur le jeu de test : RMSE = 5.959, MAE = 4.766, R2 = 0.007
+2026-10-28 15:19:04 - INFO - Modèle sauvegardé : model/model_20261028_1519.pkl
+2026-10-28 15:19:04 - INFO - Fin de l'entraînement
+2026-10-28 15:19:04 - INFO - Entraînement terminé avec succès
+2026-10-28 15:20:02 - INFO - Lancement de src/train.py
+2026-10-28 15:20:04 - INFO - Début de l'entraînement
+2026-10-28 15:20:04 - INFO - Données : data/processed/sales_processed_20261028_1520.csv (550 lignes)
+2026-10-28 15:20:04 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 15:20:04 - INFO - Découpage : 440 lignes d'entraînement, 110 de test
+2026-10-28 15:20:04 - INFO - Métriques sur le jeu de test : RMSE = 5.820, MAE = 4.638, R2 = 0.086
+2026-10-28 15:20:04 - INFO - Modèle sauvegardé : model/model_20261028_1520.pkl
+2026-10-28 15:20:04 - INFO - Fin de l'entraînement
+2026-10-28 15:20:04 - INFO - Entraînement terminé avec succès
+2026-10-28 15:21:02 - INFO - Lancement de src/train.py
+2026-10-28 15:21:03 - INFO - Début de l'entraînement
+2026-10-28 15:21:03 - INFO - Données : data/processed/sales_processed_20261028_1521.csv (555 lignes)
+2026-10-28 15:21:03 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 15:21:03 - INFO - Découpage : 444 lignes d'entraînement, 111 de test
+2026-10-28 15:21:04 - INFO - Métriques sur le jeu de test : RMSE = 5.882, MAE = 4.767, R2 = 0.106
+2026-10-28 15:21:04 - INFO - Modèle sauvegardé : model/model_20261028_1521.pkl
+2026-10-28 15:21:04 - INFO - Fin de l'entraînement
+2026-10-28 15:21:04 - INFO - Entraînement terminé avec succès
+2026-10-28 15:22:01 - INFO - Lancement de src/train.py
+2026-10-28 15:22:03 - INFO - Début de l'entraînement
+2026-10-28 15:22:03 - INFO - Données : data/processed/sales_processed_20261028_1522.csv (560 lignes)
+2026-10-28 15:22:03 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 15:22:03 - INFO - Découpage : 448 lignes d'entraînement, 112 de test
+2026-10-28 15:22:03 - INFO - Métriques sur le jeu de test : RMSE = 5.833, MAE = 4.780, R2 = 0.105
+2026-10-28 15:22:03 - INFO - Modèle sauvegardé : model/model_20261028_1522.pkl
+2026-10-28 15:22:03 - INFO - Fin de l'entraînement
+2026-10-28 15:22:04 - INFO - Entraînement terminé avec succès
+2026-10-28 15:23:01 - INFO - Lancement de src/train.py
+2026-10-28 15:23:03 - INFO - Début de l'entraînement
+2026-10-28 15:23:03 - INFO - Données : data/processed/sales_processed_20261028_1523.csv (565 lignes)
+2026-10-28 15:23:03 - INFO - Hyperparamètres : {'n_estimators': 100, 'max_depth': 3, 'learning_rate': 0.1, 'random_state': 42}
+2026-10-28 15:23:03 - INFO - Découpage : 452 lignes d'entraînement, 113 de test
+2026-10-28 15:23:03 - INFO - Métriques sur le jeu de test : RMSE = 5.808, MAE = 4.808, R2 = 0.100
+2026-10-28 15:23:03 - INFO - Modèle sauvegardé : model/model_20261028_1523.pkl
+2026-10-28 15:23:03 - INFO - Fin de l'entraînement
+2026-10-28 15:23:03 - INFO - Entraînement terminé avec succès

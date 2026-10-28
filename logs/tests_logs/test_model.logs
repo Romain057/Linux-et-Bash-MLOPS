@@ -1,0 +1,18 @@
+2026-10-28 14:40:57,000 - INFO - Modèle trouvé : model/model.pkl
+
+=== Début des tests (2026-10-28 14:40:57) ===
+Début du test de présence du fichier modèle
+Test réussi : le fichier modèle existe.
+=== Fin des tests (2026-10-28 14:40:57) ===
+2026-10-28 15:11:56,000 - INFO - Modèle trouvé : model/model.pkl
+
+=== Début des tests (2026-10-28 15:11:56) ===
+Début du test de présence du fichier modèle
+Test réussi : le fichier modèle existe.
+=== Fin des tests (2026-10-28 15:11:56) ===
+2026-10-28 15:23:42,000 - INFO - Modèle trouvé : model/model.pkl
+
+=== Début des tests (2026-10-28 15:23:42) ===
+Début du test de présence du fichier modèle
+Test réussi : le fichier modèle existe.
+=== Fin des tests (2026-10-28 15:23:42) ===

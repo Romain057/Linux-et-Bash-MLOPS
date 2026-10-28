@@ -1,0 +1,2 @@
+# Pipeline complet (collecte, prétraitement, entraînement) toutes les minutes
+* * * * * cd /home/ubuntu/exam_MAZOYER/exam_bash && make bash >> logs/cron.logs 2>&1

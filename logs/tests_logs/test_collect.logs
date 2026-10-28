@@ -1,0 +1,24 @@
+
+=== Début des tests (2026-10-28 10:51:14) ===
+Début du test de structure du CSV
+Fichier CSV chargé avec 505 lignes et 3 colonnes
+Test réussi : Le CSV est valide.
+Fin du test de structure du CSV
+=== Fin des tests ===
+
+
+=== Début des tests (2026-10-28 15:11:54) ===
+Début du test de structure du CSV
+Fichier CSV chargé avec 510 lignes et 3 colonnes
+Test réussi : Le CSV est valide.
+Fin du test de structure du CSV
+=== Fin des tests ===
+
+
+=== Début des tests (2026-10-28 15:23:41) ===
+Début du test de structure du CSV
+Fichier CSV chargé avec 565 lignes et 3 colonnes
+Test réussi : Le CSV est valide.
+Fin du test de structure du CSV
+=== Fin des tests ===
+
