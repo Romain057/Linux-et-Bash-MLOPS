@@ -1,312 +1,89 @@
-# Linux & Bash
+# Pipeline MLOps en Bash : collecte, prétraitement et réentraînement automatisés
 
-## Examen
+Ce dépôt automatise de bout en bout un pipeline de machine learning sur une machine Linux. Toutes les minutes, les ventes de cinq modèles de cartes graphiques sont collectées depuis une API, nettoyées et transformées. Un modèle XGBoost est ensuite réentraîné et versionné. L'ensemble repose uniquement sur des outils standards de Linux (Bash, cron, Make), sans orchestrateur.
 
-Vous travaillez pour une entreprise qui vend des cartes graphiques et vous êtes chargé d'automatiser un processus de collecte de données, de prétraitement et d'entraînement d'un modèle de prédiction des ventes. Votre manager vous a confié un projet où vous devrez utiliser des outils Linux et des scripts pour automatiser chaque étape de ce processus.
+Il s'agit de l'examen du module Linux & Bash de ma formation Machine Learning Engineer (Liora x Mines), réalisé sur une VM Ubuntu distante. L'école fournissait l'arborescence, les tests et un jeu de données initial. Les scripts Bash, le code Python, le Makefile, la planification cron et la gestion des dépendances sont ce que j'ai réalisé.
 
-Votre objectif est de concevoir un pipeline automatisé permettant de :
-
-- **Collecter les données** provenant d'une API toutes les minutes,
-- **Les enregistrer** dans un fichier CSV,
-- **Les prétraiter**,
-- **Entraîner un modèle de prédiction** sur ces données prétraitées.
-
-L’ensemble de ce processus doit être automatisé en utilisant des **scripts Bash** pour enchaîner les différentes étapes, **Python** pour le traitement des données et l'entraînement du modèle, **cron** pour planifier l'exécution des scripts à intervalles réguliers, et un **Makefile** pour lancer toutes les étapes en une seule ligne de commande.
-
----
-
-#### Mise en place de l'API
-
-Dans ce cours, nous avons vu comment fonctionne un système Linux. Nous aurions pu all er encore plus en détail mais nous avons construit la base pour la suite du parcours. Suivez les instructions suivantes pour réaliser l'exercice.
-
-<div class="alert alert-info"><i class="icon circle info"></i>
-Exercice à réaliser <i>obligatoirement</i> sur la machine Linux mise à votre disposition.
-</div>
-
-> Connectez vous à votre machine et exécutez la commande suivante pour récupérer l'API
-
-```shell
-wget --no-cache https://dst-de.s3.eu-west-3.amazonaws.com/bash_fr/api.tar
+```mermaid
+flowchart LR
+    CRON["cron, toutes les minutes"] -->|make bash| C["collect.sh"]
+    API["API de ventes"] -->|curl| C
+    C --> RAW[("data/raw")]
+    RAW --> P["preprocessed.sh → preprocessed.py"]
+    P --> PROC[("data/processed")]
+    PROC --> T["train.sh → train.py"]
+    T --> M[("model/*.pkl")]
 ```
 
-Vous avez maintenant un fichier d'extension `.tar`. Il s'agit simplement d'une archive à la manière d'un fichier compressé `zip`, mais spécifique à Linux. Pour manipuler ce fichier, nous passons par la commande `tar` (pour _tape archiver_).
-Pour tous les formats à base de tar, vous verrez que les options de tar sont les mêmes :
+## Ce que j'ai écrit
 
-- c : crée l'archive
-- x : extrait l'archive
-- f : utilise le fichier donné en paramètre
-- v : active le mode verbeux.
+| Fichier | Rôle |
+|---|---|
+| `scripts/collect.sh` | Interroge l'API pour chaque modèle de carte et ajoute les ventes à un nouveau CSV horodaté |
+| `src/preprocessed.py` et `scripts/preprocessed.sh` | Nettoie les données brutes et produit un jeu de variables entièrement numériques |
+| `src/train.py` et `scripts/train.sh` | Entraîne un XGBoost, calcule RMSE, MAE et R², sauvegarde le modèle |
+| `Makefile` | Point d'entrée unique : `make bash` lance le pipeline, `make tests` le vérifie |
+| `scripts/cron.txt` | Planifie le pipeline complet toutes les minutes |
+| `pyproject.toml`, `uv.lock`, `requirements.txt` | Environnement reproductible géré avec uv |
 
-> Décompressez l'archive à l'aide de la commande suivante :
+Chaque étape écrit un journal horodaté dans `logs/`. Les journaux d'une exécution réelle sont versionnés dans ce dépôt.
 
-```shell
-tar -xvf api.tar
+## Choix techniques
+
+**Une seule ligne cron qui appelle `make bash`.** Trois lignes cron indépendantes, une par script, démarreraient au même instant : le prétraitement pourrait lire un fichier en cours d'écriture, ou l'entraînement tourner sur des données pas encore prétraitées. Passer par le Makefile garantit l'ordre des étapes, et le pipeline n'est défini qu'à un seul endroit, utilisé aussi bien à la main que par cron.
+
+**Des scripts indépendants de l'endroit d'où on les lance.** Cron s'exécute avec un `PATH` minimal, sans environnement virtuel activé, depuis le répertoire personnel. Chaque script calcule donc la racine du projet à partir de son propre emplacement et appelle l'interpréteur Python du venv par chemin absolu. Les mêmes scripts fonctionnent depuis un terminal, depuis make et depuis cron.
+
+**Des échecs visibles et propagés.** Les scripts Bash commencent par `set -euo pipefail`. En cas d'erreur, Python journalise la trace complète et sort avec un code non nul, que le script Bash journalise et propage à son tour. Make arrête alors la chaîne : un modèle n'est jamais entraîné sur un prétraitement qui a échoué.
+
+**Une collecte qui accumule l'historique.** Chaque collecte repart du fichier brut le plus récent au lieu du fichier initial, si bien que le jeu de données grossit à chaque passage. Seules les réponses de l'API qui sont des entiers positifs sont écrites, et une erreur sur un modèle n'empêche pas la collecte des autres.
+
+**Un découpage temporel pour l'évaluation.** Les lignes arrivent dans l'ordre chronologique. Le découpage train/test se fait sans mélange, pour que le jeu de test contienne les ventes les plus récentes, comme lorsqu'on prédit le futur. Le modèle de carte est encodé en one-hot plutôt qu'en entier, pour ne pas introduire un ordre artificiel entre les modèles.
+
+**La traçabilité des modèles.** Les hyperparamètres et la graine aléatoire sont fixés et écrits dans le journal à chaque entraînement. Le premier modèle est sauvegardé en `model.pkl`, les suivants en `model_YYYYMMDD_HHMM.pkl`, sans écraser les précédents.
+
+## Problèmes rencontrés
+
+
+Les fichiers du dépôt fourni avaient des fins de ligne Windows (CRLF) : Bash lisait `pipefail\r` et refusait l'option. J'ai converti les scripts et le Makefile au format Unix.
+
+Le fichier de données initial ne se terminait pas par un saut de ligne, ce qui collait la première vente collectée à la dernière ligne existante. Le script de collecte vérifie désormais le dernier caractère avant d'ajouter des lignes.
+
+Le test de prétraitement exige que toutes les colonnes soient des entiers, mais `pd.get_dummies` produit des booléens par défaut. L'encodage force donc `dtype=int`.
+
+L'énoncé indiquait une collecte toutes les 3 minutes à un endroit et toutes les minutes à un autre. J'ai retenu une minute pour l'ensemble du pipeline, la collecte en faisant partie.
+
+## Aperçu d'une exécution
+
+Extrait de `logs/collect.logs` sur la VM :
+
+```
+2026-10-28 10:50:32 - INFO - Copie de data/raw/sales_data.csv vers data/raw/sales_20261028_1050.csv
+2026-10-28 10:50:32 - INFO - Début de la collecte -> data/raw/sales_20261028_1050.csv
+2026-10-28 10:50:32 - INFO - Requête http://0.0.0.0:5000/rtx3060 -> modèle : rtx3060, ventes : 9
+2026-10-28 10:50:32 - INFO - Requête http://0.0.0.0:5000/rtx3070 -> modèle : rtx3070, ventes : 17
+2026-10-28 10:50:32 - INFO - Requête http://0.0.0.0:5000/rtx3080 -> modèle : rtx3080, ventes : 17
+2026-10-28 10:50:32 - INFO - Requête http://0.0.0.0:5000/rtx3090 -> modèle : rtx3090, ventes : 16
+2026-10-28 10:50:32 - INFO - Requête http://0.0.0.0:5000/rx6700 -> modèle : rx6700, ventes : 3
+2026-10-28 10:50:32 - INFO - Fin de la collecte
 ```
 
-L'extrait de l'archive vous dévoile le script _api_
+## Stack
 
-> Lancez le script `api` après avoir donné les droits d'exécution :
+Bash, cron, GNU Make, curl, Python 3.12, uv, pandas, scikit-learn, XGBoost, pytest.
 
-```shell
-chmod +x api
-./api &
-```
+## Lancer le projet
 
-Notre API tourne maintenant en `localhost` (0.0.0.0) sur le port 5000.
-
-<div class="alert alert-info"> <i class="icon circle info"></i>
-Il est tout à fait possible de faire tourner l'API sans la mettre en arrière-plan mais l'exécution de cette dernière vous bloquera toute manipulation sur votre VM. Il faudra alors ouvrir un 2nd terminal et il faudra vous reconnecter à la VM et travailler avec le 2nd terminal uniquement.
-</div>
-
-Cette API nous dévoile les ventes par minutes du plus gros revendeurs de cartes graphiques sur les modèles rtx3060, rtx3070, rtx3080, rtx3090 et rx6700.
-Il est possible de récupérer ces informations à l'aide de la commande **cURL**. Toutefois, il se peut que vous n'ayez pas cURL sur votre machine, pour remédier à cela, nous utilisons `apt` sur Linux.
-
-
-#### Commande apt
-
-`apt` est un gestionnaire de paquets qui contiennent différents logiciels que vous pouvez installer assez facilement avec une seule ligne de code.
-
-Sur la version actuelle d'**Ubuntu 20.04.2 LTS**, vous pouvez utiliser la commande `apt-get` pour gérer les logiciels en ligne de commande. Cela vous permet d'installer, de mettre à jour ou de supprimer des paquets de manière précise.
-
-```shell
-apt-get install nom_du_logiciel
-```
-
-Dans la plupart des cas, vous avez besoin de `sudo` pour forcer les droits d'installation d'un logiciel.
-
-Avant d'installer quoi que ce soit, il est recommandé de mettre à jour la liste des paquets disponibles sur votre système en exécutant :
-
-```shell
-sudo apt-get update
-```
-
-Ensuite, vous pouvez appliquer les mises à jour disponibles pour vos logiciels installés avec :
-```shell
-sudo apt-get upgrade
-```
-
-Pour supprimer un logiciel ainsi que ses fichiers de configuration, vous pouvez utiliser la commande :
-```shell
-sudo apt-get purge nom_du_logiciel
-```
-
-> Installez `curl` avec `apt`.
-
-```shell
-sudo apt-get update
-
-sudo apt-get install curl
-```
-
-Maintenant que nous avons `curl`, expliquons l'outil.
-
-#### Commande curl
-
-cURL, qui signifie client URL est un outil de ligne de commande pour le transfert de fichiers avec une syntaxe URL. Il prend en charge un certain nombre de protocoles (HTTP, HTTPS, FTP, et bien d'autres). HTTP/HTTPS en fait un excellent candidat pour interagir avec les APIs.
-
-On peut, par exemple, récupérer les ventes de RTX 3060 à l'aide de la commande suivante.
-
-```shell
-curl "http://0.0.0.0:5000/rtx3060"
-```
-
-### Mise en place de l'examen
-
-- Créez un dossier exam_NOM où NOM est votre nom de famille.
-- Ajoutez un dossier nommé exam_bash
-- Clonez le Git pour les modalités de l'examen : https://github.com/DataScientest/exam_Bash_MLOps.git
-
-
-En clonant le git, vous aurez l'arborescence suivante :
-```txt
-exam_NOM/
-  ├── exam_bash/
-      ├── data/
-      │   ├── processed/              # Fichiers CSV prétraités
-      │   └── raw/
-      │       └── sales_data.csv      # Fichier CSV des données brutes (500 lignes)
-      ├── logs/
-      │   ├── test_logs/
-      │   ├── collect.logs            # Logs de collecte des données
-      │   ├── preprocessed.logs       # Logs de prétraitement des données
-      │   └── train.logs              # Logs d'entraînement du modèle
-      ├── model/                      # Stockage des modèles entraînés
-      ├── scripts/
-      │   ├── collect.sh              # Script de collecte des données (toutes les 2 minutes)
-      │   ├── preprocessed.sh         # Script de prétraitement des données
-      │   ├── train.sh                # Script d'entraînement du modèle
-      │   └── cron.txt                # Fichier de configuration des tâches cron
-      ├── src/
-      │   ├── preprocessed.py         # Script de prétraitement des données (Python)
-      │   └── train.py                # Script d'entraînement du modèle (Python)
-      ├── tests/
-      │   ├── test_collect.py         # Test de la collecte des données et de l'existence du CSV
-      │   ├── test_model.py           # Test de l'entraînement du modèle et de l'existence du model.pkl
-      │   └── test_preprocessed.py    # Test du bon prétraitement des données
-      ├── Makefile                    # Makefile pour automatiser les tâches
-      ├── README.md                   # Documentation du projet
-      ├── requirements.txt            # Dépendances du projet
-      ├── pyproject.toml              # Configuration du projet (dépendances et autres paramètres)
-      └── uv.lock                     # Fichier de verrouillage des dépendances pour uv
-```
-> La version de Python utilisée pour ce projet est Python 3.12
-
-Dans l'arborescence du projet, vous trouverez les fichiers **uv.lock** et **pyproject.toml** qui sont nécessaires pour la gestion des dépendances qui devront être configurés en suivant les différentes commandes abordées dans le cours des bonnes pratiques.
-
-Avant de commencer l'examen, assurez-vous de vous synchroniser avec le projet et d'activer votre environnement virtuel.
-
-#### 1. **Collecte des Données**
-Le processus commence par la collecte des données des ventes de cartes graphiques via une API que vous devrez interroger toutes les **3 minutes**. Ces données sont récupérées et stockées dans un fichier CSV situé dans le dossier `data/raw/`. 
-
-#### 2. **Prétraitement des Données**
-Une fois les données collectées, vous devrez appliquer un prétraitement. Ce prétraitement peut inclure :
-- La suppression de valeurs manquantes ou incorrectes,
-- La conversion des données dans le format approprié (par exemple, conversion de la date ou transformation des types de données),
-- L'agrégation ou le filtrage des données si nécessaire.
-
-Les résultats du prétraitement doivent être enregistrés dans un fichier CSV situé dans le dossier `data/processed/`.
-
-#### 3. **Entraînement du Modèle**
-Les données prétraitées serviront à entraîner un modèle de prédiction des ventes des cartes graphiques. Vous utiliserez probablement un modèle **XGBoost** pour cette tâche. Le modèle entraîné sera sauvegardé dans le dossier `model/` et sera utilisé pour faire des prédictions futures.
-
-#### 4. **Automatisation via Cron**
-Le processus complet (collecte des données, prétraitement et entraînement) doit être exécuté automatiquement. Vous utiliserez **cron** pour planifier les tâches à exécuter toutes les **3 minutes**. Un fichier `cron.txt` sera fourni pour configurer les tâches cron.
-
-#### 5. **Utilisation d'un Makefile**
-Un **Makefile** sera utilisé pour faciliter l'exécution des tâches et automatiser l'ensemble du pipeline avec la commande suivante :
-```bash
-make bash
-```
-Voici un diagramme qui résume brièvement le fonctionnement attendu du programme en exécutant cette commande: 
-
-<center><img src="https://assets-datascientest.s3.eu-west-1.amazonaws.com/MLOPS/image.png" style="width:80%"/></center>
-
-#### Fichiers à Modifier
-
-Vous trouverez dans les différents fichiers à modifier, les consignes correspondantes pour chaque tâche à réaliser.
-
-**⚠️ Attention : Nous évaluerons également dans cet examen le respect des bonnes pratiques.**
-
-1. **collect.sh**  
-   Le script `collect.sh` doit être modifié pour automatiser la collecte des données toutes les 3 minutes.
-
-2. **preprocessed.sh**  
-   Le script `preprocessed.sh` doit être modifié pour lancer le prétraitement des données collectées.
-
-3. **train.sh**  
-   Le script `train.sh` doit être modifié pour entraîner le modèle avec les données prétraitées.
-
-4. **cron.txt**  
-   Vous devez configurer `cron.txt` pour exécuter automatiquement la collecte, le prétraitement et l'entraînement du modèle toutes les 3 minutes.
-
-5. **preprocessed.py**  
-   Le script `preprocessed.py` doit être modifié pour effectuer le prétraitement des données collectées (nettoyage, transformation des données, etc.).
-
-6. **train.py**  
-   Le script `train.py` doit être modifié pour entraîner le modèle de prédiction avec les données prétraitées.
-
-7. **Makefile**  
-   Le fichier `Makefile` doit être ajusté pour automatiser l’ensemble du processus avec une seule commande :
-   ```bash
-   make bash
-   ```
-   Le schéma du workflow est présenté plus haut du fichier README.
-
-8. **requirements.txt**
-   Le fichier requirements.txt doit inclure uniquement les bibliothèques nécessaires pour l'exécution du programme
-
-<br>
-
-### Tests et Vérifications
-
-**⚠️ Vous ne devez pas modifier les fichiers de test fournis. Ceux-ci valideront la conformité de votre travail.**
-
-- **Test de la collecte des données** (`test_collect.py`)
-- **Test de l'entraînement du modèle** (`test_model.py`)
-- **Test du prétraitement des données** (`test_preprocessed.py`)
-
-Pour exécuter les tests, vous pouvez utiliser la commande suivante :
-```bash
-make tests
-```
-
-Cela va créer dans logs/tests_logs des fichiers test_*.logs.
-
-Exemple de sortie des journaux (logs) générés par votre programme d'automatisation fonctionnel :
-
-**test_collect.logs** : 
-```txt
-=== Début des tests (2025-04-30 15:21:03) ===
-Début du test de structure du CSV
-Fichier CSV chargé avec 520 lignes et 3 colonnes
-Test réussi : Le CSV est valide.
-Fin du test de structure du CSV
-=== Fin des tests ===
-```
-
-**test_preprocessed.logs** : 
-```txt
-=== Début des tests (2025-04-30 15:21:19) ===
-Début du test de structure du fichier prétraité
-Fichier chargé : data/processed/sales_processed_20250430_1516.csv
-Vérification colonne 'timestamp' : OK (non présente)
-Vérification types entiers : OK (toutes les colonnes sont des entiers)
-Test terminé pour le fichier prétraité.
-=== Fin des tests ===
-```
-
-**test_model.logs** : 
-```txt
-=== Début des tests (2025-04-30 15:21:23) ===
-Début du test de présence du fichier modèle
-Test réussi : le fichier modèle existe.
-=== Fin des tests (2025-04-30 15:21:23) ===
-```
-
-Une fois l’ensemble du programme exécuté (collecte, prétraitement, entraînement), voici ce que vous devez observer :
-
-**data/raw** :
-- Des fichiers CSV contenant les **données brutes de ventes** récupérées automatiquement depuis l'API.
-- Ces fichiers suivent un nommage du type : `sales_YYYYMMDD_HHMM.csv`.
-
-**data/processed/** :
-- Des fichiers CSV contenant les **données prétraitées**, prêtes à être utilisées pour l'entraînement du modèle.
-- Ces fichiers suivent un nommage du type : `sales_processed_YYYYMMDD_HHMM.csv`.
-
-**model/** :
-- Une ou plusieurs versions du **modèle entraîné**, enregistrées sous forme de fichier `.pkl`.
-- Exemple : `model.pkl` ou `model_YYYYMMDD_HHMM.pkl`.
-
-## Rendu final
-
-**⚠️ Merci de ne pas inclure le dossier `venv` dans l’archive du projet, car cela alourdit considérablement le fichier.**
-
-> Créez une archive exam_NOM.tar
+L'API de l'examen est un binaire fourni par l'école : elle n'est pas incluse dans ce dépôt.
 
 ```bash
-tar -cvf exam_NOM.tar exam_NOM
+uv sync                    # crée l'environnement depuis uv.lock
+./api &                    # API de ventes sur 0.0.0.0:5000
+make bash                  # collecte -> prétraitement -> entraînement
+make tests                 # vérifie les sorties de chaque étape
+crontab scripts/cron.txt   # planification (adapter le chemin absolu du projet)
 ```
 
-### Commande scp
+## Pour aller plus loin
 
-La commande `scp` permet de transférer de manière sécurisée un fichier ou une archive (les dossiers ne sont pas transférables) via une connexion SSH.
-
-Vous pouvez télécharger votre archive en exécutant la commande suivante `sur un terminal de votre propre machine`. 
-
-```shell
-scp -i "data_enginering_machine.pem" ubuntu@VOTRE_IP:~/exam_NOM.tar .
-```
-
-<div class="alert alert-info"> <i class="icon circle info"></i>
-Plusieurs détails concernant la commande ci-dessus:
-  <br>
-  </br>
-  - Lorsque vous ouvrez votre terminal sur votre ordinateur local pour transférer votre archive depuis la VM, précisez le chemin absolu vers votre fichier data_enginering_machine.pem
-  <br>
-  </br>
-  - Votre archive sera téléchargée dans le même dossier où se trouve votre fichier data_enginering_machine.pem 
-</div>
-
-Une fois que vous avez téléchargé votre archive sur votre machine locale, vous pouvez l'envoyer en uploadant via l'onglet `Mes Exams`.
-
-Bon courage !
+Cron montre vite ses limites sur un vrai pipeline : il ne gère ni les dépendances entre tâches, ni les reprises sur erreur, ni l'historique des exécutions. En production, j'utiliserais un orchestrateur comme Airflow ou Prefect, MLflow pour suivre les entraînements et enregistrer les modèles, et DVC pour versionner les données.
